@@ -1,4 +1,4 @@
-package rxbus.wellingtoncosta.com.br.androidrxbusdemo
+package io.wellingtoncosta.android.rxbus.demo
 
 import org.junit.Test
 

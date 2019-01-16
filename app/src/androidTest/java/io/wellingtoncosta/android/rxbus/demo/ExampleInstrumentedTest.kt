@@ -1,4 +1,4 @@
-package rxbus.wellingtoncosta.com.br.androidrxbusdemo
+package io.wellingtoncosta.android.rxbus.demo
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

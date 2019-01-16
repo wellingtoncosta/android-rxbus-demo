@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Android RxBus Demo</string>
+    <string name="back_to_fragment_one">Back To Fragment Two</string>
+    <string name="finish_app">Finish App</string>
+    <string name="fragment_one">Fragment One</string>
+    <string name="fragment_two">Fragment Two</string>
+    <string name="go_to_fragment_two">Go To Fragment Two</string>
 </resources>
