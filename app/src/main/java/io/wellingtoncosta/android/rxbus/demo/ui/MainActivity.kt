@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         observeEvents()
-        RxBus.instance.publish(FRAGMENT_ONE_TAG)
+        RxBus.instance.publish(MAIN_ACTIVITY_SUBJECT, FRAGMENT_ONE_TAG)
     }
 
     private fun observeEvents() {
-        RxBus.instance.subscribe {
+        RxBus.instance.subscribe(MAIN_ACTIVITY_SUBJECT, this) {
             when (it as String) {
                 FRAGMENT_ONE_TAG -> {
                     supportFragmentManager.transaction {
@@ -36,7 +36,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        RxBus.instance.unregister(this)
+    }
+
     companion object {
+        const val MAIN_ACTIVITY_SUBJECT = "MAIN_ACTIVITY_SUBJECT"
         const val FRAGMENT_ONE_TAG = "FRAGMENT_ONE"
         const val FRAGMENT_TWO_TAG = "FRAGMENT_TWO"
         const val FINISH_APP_TAG = "FINISH_APP"

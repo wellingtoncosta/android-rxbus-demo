@@ -9,6 +9,7 @@ import io.wellingtoncosta.android.rxbus.demo.R
 import io.wellingtoncosta.android.rxbus.demo.bus.RxBus
 import io.wellingtoncosta.android.rxbus.demo.ui.MainActivity.Companion.FINISH_APP_TAG
 import io.wellingtoncosta.android.rxbus.demo.ui.MainActivity.Companion.FRAGMENT_ONE_TAG
+import io.wellingtoncosta.android.rxbus.demo.ui.MainActivity.Companion.MAIN_ACTIVITY_SUBJECT
 import kotlinx.android.synthetic.main.fragment_fragment_two.view.*
 
 /**
@@ -22,11 +23,11 @@ class FragmentTwo : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_fragment_two, container, false).apply {
             this.back_to_fragment_one.setOnClickListener {
-                RxBus.instance.publish(FRAGMENT_ONE_TAG)
+                RxBus.instance.publish(MAIN_ACTIVITY_SUBJECT, FRAGMENT_ONE_TAG)
             }
 
             this.finish_app.setOnClickListener {
-                RxBus.instance.publish(FINISH_APP_TAG)
+                RxBus.instance.publish(MAIN_ACTIVITY_SUBJECT, FINISH_APP_TAG)
             }
         }
     }
